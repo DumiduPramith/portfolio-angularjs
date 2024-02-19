@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="portfolioApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="lib/angular-animate.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="lib/typed.umd.js"></script>
+    <base href="/" />
+  </head>
+  <body ng-controller="indexController">
+    <nav
+      id="navbar"
+      class="d-flex justify-content-between mt-3 mt-md-4 navbar fixed-top container d-none"
+    >
+      <div class="d-flex">
+        <p
+          id="name"
+          class="nav-brand m-0 fw-bolder f-500 cursor-pointer fadein-top"
+          ng-click="goToUrl('/')"
+        >
+          dumiduPramith();
+        </p>
+      </div>
+      <div class="middle d-none d-md-block">
+        <ul id="nav-menu" class="d-flex list-unstyled m-0">
+          <li
+            ng-click="goToUrl('/')"
+            ng-class="{'link-active' : isActive('/')}"
+          >
+            Home
+          </li>
+          <li
+            ng-click="goToUrl('/about')"
+            ng-class="{'link-active' : isActive('/about')}"
+          >
+            About
+          </li>
+          <li
+            ng-click="goToUrl('/portfolio')"
+            ng-class="{'link-active' : isActive('/portfolio')}"
+          >
+            Portfolio
+          </li>
+          <li
+            ng-click="goToUrl('/contact')"
+            ng-class="{'link-active' : isActive('/contact')}"
+          >
+            Contact
+          </li>
+        </ul>
+      </div>
+      <div class="right">
+        <a href="https://github.com/DumiduPramith"
+          ><img
+            src="images/github.png"
+            alt="github"
+            width="36px"
+            height="36px"
+            class="rounded-full"
+        /></a>
+      </div>
+    </nav>
+    <main ng-view class="fadeIn"></main>
+    <footer
+      class="nav-border-bottom rounded-border left fixed-bottom d-md-none"
+    >
+      <nav id="bottom-nav" class="text-xs my-3 mx-6">
+        <ul class="list-unstyled d-flex justify-content-between fw-400">
+          <li
+            ng-click="goToUrl('/')"
+            ng-class="{'link-active' : isActive('/')}"
+          >
+            Home
+          </li>
+          <li
+            ng-click="goToUrl('/about')"
+            ng-class="{'link-active' : isActive('/about')}"
+          >
+            About
+          </li>
+          <li
+            ng-click="goToUrl('/portfolio')"
+            ng-class="{'link-active' : isActive('/portfolio')}"
+          >
+            Portfolio
+          </li>
+          <li
+            ng-click="goToUrl('/contact')"
+            ng-class="{'link-active' : isActive('/contact')}"
+          >
+            Contact
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>

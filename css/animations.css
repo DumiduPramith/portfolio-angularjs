@@ -1,0 +1,31 @@
+/* ANIMATIONS */
+.fadein-bot {
+  opacity: 0;
+  animation: fadeInBot 0.5s forwards;
+}
+
+@keyframes fadeInBot {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fadein-top {
+  opacity: 0;
+  animation: fadeInTop 0.5s forwards;
+}
+
+@keyframes fadeInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

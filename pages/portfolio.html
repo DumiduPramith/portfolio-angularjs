@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <div class="d-flex flex-column align-items-center mb-4">
+    <h2 class="fw-700">Past Project Experience</h2>
+    <p class="gradient-text fs-1">Explore the project I've worked on so far</p>
+  </div>
+  <div class="row">
+    <div
+      id="card-wrapper"
+      class="col-12 col-md-6 col-lg-4 p-3"
+      ng-repeat="project in projects"
+    >
+      <div class="rounded-3xl border-card bg-card p-4 w-100 h-100">
+        <div id="portfolio-card" class="d-flex flex-column gap-_5">
+          <img
+            ng-src="images/portfolio/{{project.image}}"
+            alt="{{project.title}}"
+            class="w-100 h-100 rounded-3xl"
+          />
+          <div class="d-flex justify-content-center">
+            <h3 class="mt-3">{{project.title}}</h3>
+          </div>
+          <p>{{project.description}}</p>
+          <p class="text-amber-200 fw-500 fs-2">vue</p>
+          <div class="d-flex justify-content-end align-items-center">
+            <a href="{{project.github_link}}" target="_blank"
+              ><img
+                src="images/icons/github__.png"
+                alt=""
+                width="32"
+                height="32"
+            /></a>
+            <a href="{{project.live_link}}" target="_blank"
+              ><img
+                src="images/icons/open_new_.png"
+                alt=""
+                width="22"
+                height="22"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
