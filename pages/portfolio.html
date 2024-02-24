@@ -1,15 +1,17 @@
 <div class="container mt-5">
-  <div class="d-flex flex-column align-items-center mb-4">
+  <div class="d-flex flex-column align-items-center mb-4 fadein-top">
     <h2 class="fw-700">Past Project Experience</h2>
     <p class="gradient-text fs-1">Explore the project I've worked on so far</p>
   </div>
-  <div class="row">
+  <div class="row fade-zoom-in">
     <div
       id="card-wrapper"
       class="col-12 col-md-6 col-lg-4 p-3"
       ng-repeat="project in projects"
     >
-      <div class="rounded-3xl border-card bg-card p-4 w-100 h-100">
+      <div
+        class="rounded-3xl border-card bg-card p-4 w-100 h-100 hover:up-card hover:bg-card"
+      >
         <div id="portfolio-card" class="d-flex flex-column gap-_5">
           <img
             ng-src="images/portfolio/{{project.image}}"

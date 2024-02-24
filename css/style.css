@@ -15,11 +15,12 @@ main {
   display: contents !important;
 }
 #home {
-  height: 90vh;
+  height: 80vh;
 }
 
 #navbar {
   position: sticky !important;
+  background-color: #121212 !important;
 }
 
 .wave {
@@ -28,6 +29,20 @@ main {
   animation-iteration-count: infinite;
   transform-origin: 70% 70%;
   display: inline-block;
+}
+
+button {
+  background-color: transparent;
+  background-image: none;
+  outline: none;
+}
+
+*:focus {
+  outline: 0 !important;
+}
+
+.color-white {
+  color: white;
 }
 
 @keyframes wave-animation {
@@ -107,6 +122,11 @@ ul > li {
   color: rgb(253 230 138 / var(--tw-text-opacity));
 }
 
+.hover\:text-amber-200:hover {
+  --tw-text-opacity: 1;
+  color: rgb(253 230 138 / var(--tw-text-opacity));
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -182,9 +202,18 @@ footer > #bottom-nav > ul {
   background-color: rgb(253 230 138 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-amber-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 230 138 / var(--tw-bg-opacity));
+}
+
 .text-amber-50 {
   --tw-text-opacity: 1;
   color: rgb(255 251 235 / var(--tw-text-opacity));
+}
+
+.hover\:bg-opacity-10:hover {
+  --tw-bg-opacity: 0.1;
 }
 
 .link-active::after {
@@ -234,4 +263,62 @@ footer > #bottom-nav > ul {
 }
 .fs-2 {
   font-size: 1.1rem;
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
+
+.bg-opacity-80 {
+  opacity: 1;
+}
+
+.spacer-2 {
+  height: 2rem;
+}
+
+.spacer-3 {
+  height: 3rem;
+}
+
+.spacer-5 {
+  height: 5rem;
+}
+
+.spacer-6 {
+  height: 6rem;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+/* extra small */
+@media (max-width: 575px) {
+}
+
+/* small */
+@media (max-width: 575px) {
+}
+
+/* medium */
+@media (max-width: 767px) {
+  #navbar {
+    position: static !important; /* Remove fixed-top on small screens */
+  }
+
+  #home {
+    height: unset !important;
+    margin-top: 4rem;
+  }
+}
+
+/* large */
+@media (max-width: 991px) {
+}
+
+@media (min-width: 992px) {
+  .about-avatar {
+    width: auto !important;
+  }
 }

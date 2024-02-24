@@ -1,5 +1,9 @@
 var portfolioApp = angular.module("portfolioApp", ["ngRoute", "ngAnimate"]);
 
+portfolioApp.run(function ($animate) {
+  $animate.enabled(true);
+});
+
 portfolioApp.config([
   "$routeProvider",
   "$locationProvider",
@@ -42,6 +46,25 @@ portfolioApp.controller("indexController", [
     $scope.isActive = function (viewLocation) {
       return viewLocation === $location.path();
     };
+
+    $scope.links = [
+      {
+        title: "Home",
+        url: "/",
+      },
+      {
+        title: "About",
+        url: "/about",
+      },
+      {
+        title: "Portfolio",
+        url: "/portfolio",
+      },
+      {
+        title: "Contact",
+        url: "/contact",
+      },
+    ];
   },
 ]);
 
@@ -64,81 +87,97 @@ portfolioApp.controller("homeController", [
 
 portfolioApp.controller("aboutController", [
   "$scope",
-  function ($scope) {
-    $scope.skills = [
-      {
-        skill: "HTML",
-        level: "Advanced",
-        icon: "html.png",
-      },
-      {
-        skill: "CSS",
-        level: "Advanced",
-        icon: "css.png",
-      },
-      {
-        skill: "JavaScript",
-        level: "Advanced",
-        icon: "js.png",
-      },
-      {
-        skill: "Python",
-        level: "Advanced",
-        icon: "python.png",
-      },
-      {
-        skill: "Angular",
-        level: "Advanced",
-        icon: "angular.png",
-      },
-      {
-        skill: "Ng Material",
-        level: "Advanced",
-        icon: "material.png",
-      },
-      {
-        skill: "django",
-        level: "Intermediate",
-        icon: "django.png",
-      },
-      {
-        skill: "Bootstrap",
-        level: "Intermediate",
-        icon: "bootstrap.png",
-      },
-      {
-        skill: "ionic",
-        level: "Beginner",
-        icon: "ionic.png",
-      },
-      {
-        skill: "Node.js",
-        level: "Beginner",
-        icon: "node.png",
-      },
-      {
-        skill: "scrapy",
-        level: "Beginner",
-        icon: "scrapy.png",
-      },
-      {
-        skill: "PHP",
-        level: "Beginner",
-        icon: "php.png",
-      },
-    ];
+  "$timeout",
+  function ($scope, $timeout) {
+    $scope.skills = [];
+    $scope.tools = [];
 
-    $scope.tools = [
-      { tool: "Git", description: "Version Control", icon: "git.png" },
-      { tool: "Github", description: "Code Hosting", icon: "github.png" },
-      { tool: "MySql", description: "Database", icon: "mysql.png" },
-      { tool: "Postman", description: "API Testing", icon: "postman.png" },
-      {
-        tool: "Wireshark",
-        description: "Network Analysis",
-        icon: "wireshark.png",
-      },
-    ];
+    $scope.skillsFn = function () {
+      $timeout(function () {
+        $scope.skills = [
+          {
+            skill: "HTML",
+            level: "Advanced",
+            icon: "html.png",
+          },
+          {
+            skill: "CSS",
+            level: "Advanced",
+            icon: "css.png",
+          },
+          {
+            skill: "JavaScript",
+            level: "Advanced",
+            icon: "js.png",
+          },
+          {
+            skill: "Python",
+            level: "Advanced",
+            icon: "python.png",
+          },
+          {
+            skill: "Angular",
+            level: "Advanced",
+            icon: "angular.png",
+          },
+          {
+            skill: "Ng Material",
+            level: "Advanced",
+            icon: "material.png",
+          },
+          {
+            skill: "django",
+            level: "Intermediate",
+            icon: "django.png",
+          },
+          {
+            skill: "Bootstrap",
+            level: "Intermediate",
+            icon: "bootstrap.png",
+          },
+          {
+            skill: "ionic",
+            level: "Beginner",
+            icon: "ionic.png",
+          },
+          {
+            skill: "Node.js",
+            level: "Beginner",
+            icon: "node.png",
+          },
+          {
+            skill: "scrapy",
+            level: "Beginner",
+            icon: "scrapy.png",
+          },
+          {
+            skill: "PHP",
+            level: "Beginner",
+            icon: "php.png",
+          },
+        ];
+      });
+      $scope.tools = [];
+    };
+
+    $scope.toolsFn = function () {
+      $timeout(function () {
+        $scope.tools = [
+          { tool: "Git", description: "Version Control", icon: "git.png" },
+          { tool: "Github", description: "Code Hosting", icon: "github.png" },
+          { tool: "MySql", description: "Database", icon: "mysql.png" },
+          { tool: "Postman", description: "API Testing", icon: "postman.png" },
+          {
+            tool: "Wireshark",
+            description: "Network Analysis",
+            icon: "wireshark.png",
+          },
+        ];
+      });
+      $scope.skills = [];
+    };
+
+    $scope.skillsFn();
   },
 ]);
 

@@ -30,28 +30,12 @@
       <div class="middle d-none d-md-block">
         <ul id="nav-menu" class="d-flex list-unstyled m-0">
           <li
-            ng-click="goToUrl('/')"
-            ng-class="{'link-active' : isActive('/')}"
+            ng-repeat="link in links"
+            ng-click="goToUrl(link.url)"
+            ng-class="{'link-active' : isActive(link.url)}"
+            class=""
           >
-            Home
-          </li>
-          <li
-            ng-click="goToUrl('/about')"
-            ng-class="{'link-active' : isActive('/about')}"
-          >
-            About
-          </li>
-          <li
-            ng-click="goToUrl('/portfolio')"
-            ng-class="{'link-active' : isActive('/portfolio')}"
-          >
-            Portfolio
-          </li>
-          <li
-            ng-click="goToUrl('/contact')"
-            ng-class="{'link-active' : isActive('/contact')}"
-          >
-            Contact
+            {{link.title}}
           </li>
         </ul>
       </div>
@@ -62,39 +46,27 @@
             alt="github"
             width="36px"
             height="36px"
-            class="rounded-full"
+            class="rounded-full fadein-top"
         /></a>
       </div>
     </nav>
-    <main ng-view class="fadeIn"></main>
+
+    <main ng-view id="list-item"></main>
+    <nav class="spacer-6 d-md-none"></nav>
     <footer
-      class="nav-border-bottom rounded-border left fixed-bottom d-md-none"
+      class="nav-border-bottom rounded-border left fixed-bottom d-md-none backdrop-blur-md bg-opacity-80"
     >
-      <nav id="bottom-nav" class="text-xs my-3 mx-6">
-        <ul class="list-unstyled d-flex justify-content-between fw-400">
+      <nav class="text-xs my-3 px-5 mx-sm-5 overflow-hidden">
+        <ul
+          id="bottom-nav"
+          class="list-unstyled d-flex justify-content-between fw-400"
+        >
           <li
-            ng-click="goToUrl('/')"
-            ng-class="{'link-active' : isActive('/')}"
+            ng-repeat="link in links"
+            ng-click="goToUrl(link.url)"
+            ng-class="{'link-active' : isActive(link.url)}"
           >
-            Home
-          </li>
-          <li
-            ng-click="goToUrl('/about')"
-            ng-class="{'link-active' : isActive('/about')}"
-          >
-            About
-          </li>
-          <li
-            ng-click="goToUrl('/portfolio')"
-            ng-class="{'link-active' : isActive('/portfolio')}"
-          >
-            Portfolio
-          </li>
-          <li
-            ng-click="goToUrl('/contact')"
-            ng-class="{'link-active' : isActive('/contact')}"
-          >
-            Contact
+            {{link.title}}
           </li>
         </ul>
       </nav>
