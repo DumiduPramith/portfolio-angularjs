@@ -40,3 +40,5 @@ This project was built using these technologies.
 1. Installation: `Clone The repository`
 
 2. Put Project into webserver`(Apache,nginx)`, in there you can direcly serve the html and static files.
+
+## Github Repo - <a href="https://github.com/DumiduPramith/portfolio" target="_blank">https://github.com/DumiduPramith/portfolio</a>
