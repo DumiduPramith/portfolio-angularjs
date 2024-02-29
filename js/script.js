@@ -93,7 +93,7 @@ portfolioApp.controller("homeController", [
       {
         media: "linkedin",
         icon: "linkedin.svg",
-        url: "www.linkedin.com/in/dumidupramith",
+        url: "https://www.linkedin.com/in/dumidupramith",
       },
       {
         media: "X",
