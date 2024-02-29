@@ -21,17 +21,23 @@
           <div class="d-flex justify-content-center">
             <h3 class="mt-3">{{project.title}}</h3>
           </div>
-          <p>{{project.description}}</p>
-          <p class="text-amber-200 fw-500 fs-2">vue</p>
+          <p class="text-justify">{{project.description}}</p>
+          <p class="text-amber-200 fw-500 fs-2">{{project.technology}}</p>
           <div class="d-flex justify-content-end align-items-center">
-            <a href="{{project.github_link}}" target="_blank"
+            <a
+              ng-if="project.github_link"
+              href="{{project.github_link}}"
+              target="_blank"
               ><img
                 src="images/icons/github__.png"
                 alt=""
                 width="32"
                 height="32"
             /></a>
-            <a href="{{project.live_link}}" target="_blank"
+            <a
+              ng-if="project.live_link"
+              href="{{project.live_link}}"
+              target="_blank"
               ><img
                 src="images/icons/open_new_.png"
                 alt=""

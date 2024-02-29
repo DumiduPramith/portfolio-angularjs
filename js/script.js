@@ -70,7 +70,13 @@ portfolioApp.controller("indexController", [
 
 portfolioApp.controller("homeController", [
   "$scope",
-  function ($scope) {
+  "$window",
+  "$timeout",
+  function ($scope, $window, $timeout) {
+    $scope.goToUrl_new = function (path) {
+      $window.open(path, "_blank");
+    };
+
     var typed = new Typed(".auto-type", {
       strings: [
         "Web-Developer",
@@ -82,18 +88,44 @@ portfolioApp.controller("homeController", [
       backSpeed: 100,
       loop: true,
     });
+
+    $scope.socialMedias = [
+      {
+        media: "linkedin",
+        icon: "linkedin.svg",
+        url: "www.linkedin.com/in/dumidupramith",
+      },
+      {
+        media: "X",
+        icon: "x_logo.svg",
+        url: "https://twitter.com/DumiduMaxx",
+      },
+      {
+        media: "facebook",
+        icon: "facebook.svg",
+        url: "https://web.facebook.com/dumidu.induka.5",
+      },
+    ];
+
+    $scope.removeFadeIn = false; // initial value
+    $timeout(function () {
+      $scope.removeFadeIn = true;
+    }, 1000);
   },
 ]);
 
 portfolioApp.controller("aboutController", [
   "$scope",
   "$timeout",
-  function ($scope, $timeout) {
+  "$window",
+  function ($scope, $timeout, $window) {
     $scope.skills = [];
     $scope.tools = [];
+    var scroll = 0;
 
     $scope.skillsFn = function () {
       $timeout(function () {
+        scroll = 1;
         $scope.skills = [
           {
             skill: "HTML",
@@ -158,6 +190,11 @@ portfolioApp.controller("aboutController", [
         ];
       });
       $scope.tools = [];
+      if (scroll === 1) {
+        $timeout(function () {
+          $window.scrollTo(0, document.body.scrollHeight);
+        }, 100);
+      }
     };
 
     $scope.toolsFn = function () {
@@ -175,6 +212,9 @@ portfolioApp.controller("aboutController", [
         ];
       });
       $scope.skills = [];
+      $timeout(function () {
+        $window.scrollTo(0, document.body.scrollHeight);
+      }, 100);
     };
 
     $scope.skillsFn();
@@ -187,51 +227,49 @@ portfolioApp.controller("portfolioController", [
     $scope.projects = [
       {
         title: "Personal Website",
-        description: "Personal Portfolio",
-        technology: "vue",
+        description:
+          "My personal portfolio website design using Figma and its development done using Angularjs. This project i used angular animations too.",
+        technology: "Angularjs",
         image: "portfolio.png",
-        github_link: "",
+        github_link: "https://github.com/DumiduPramith/portfolio",
         live_link: "",
       },
       {
-        title: "Personal Website",
-        description: "Personal Portfolio",
-        technology: "vue",
-        image: "portfolio.png",
-        github_link: "",
-        live_link: "",
+        title: "Car Renting System",
+        description:
+          "I designed and developed an innovative online car renting platform using Angular for frontend development and Figma for the create design.",
+        technology: "Angular, Django",
+        image: "green_rent.png",
+        github_link: "https://github.com/DumiduPramith/green-rent",
+        live_link:
+          "https://www.figma.com/file/qskZy40GPdG7NrrFE9jVhf/Car_Rental?type=design&node-id=34%3A566&mode=dev&t=zXF8dnLA2B0aK3lN-1",
       },
       {
-        title: "Personal Website",
-        description: "Personal Portfolio",
-        technology: "vue",
-        image: "portfolio.png",
+        title: "Ecommerce Website design",
+        description: "I designed e-commerce website design using Figma",
+        technology: "Figma",
+        image: "ecommerce.png",
         github_link: "",
-        live_link: "",
+        live_link:
+          "https://www.figma.com/file/rD6b4WPmH5z4WdysF54k70/ecommerce?type=design&node-id=0%3A1&mode=dev&t=AkmO3OP0JPtp54kM-1",
       },
       {
-        title: "Personal Website",
-        description: "Personal Portfolio",
-        technology: "vue",
-        image: "portfolio.png",
-        github_link: "",
-        live_link: "",
+        title: "Ecommerce Website",
+        description:
+          "I developed an e-commerce website using Django and Angular for frontend development. mysql used as the database.",
+        technology: "Angular, Django",
+        image: "ecommerce_2.png",
+        github_link: "https://github.com/DumiduPramith/electro-ecommerce",
+        live_link: "/images/portfolio/ecommerce_2.png",
       },
       {
-        title: "Personal Website",
-        description: "Personal Portfolio",
-        technology: "vue",
-        image: "portfolio.png",
+        title: "Career Development poster",
+        description:
+          "I designed a career development poster for Team IRIS using photoshop.",
+        technology: "Photoshop",
+        image: "poster.jpg",
         github_link: "",
-        live_link: "",
-      },
-      {
-        title: "Personal Website",
-        description: "Personal Portfolio",
-        technology: "vue",
-        image: "portfolio.png",
-        github_link: "",
-        live_link: "",
+        live_link: "/images/portfolio/poster.jpg",
       },
     ];
   },
@@ -239,7 +277,11 @@ portfolioApp.controller("portfolioController", [
 
 portfolioApp.controller("contactController", [
   "$scope",
-  function ($scope) {
-    console.log("hello contact");
+  "$timeout",
+  function ($scope, $timeout) {
+    $scope.oneTimeRan = false;
+    $timeout(function () {
+      $scope.oneTimeRan = true;
+    }, 1000);
   },
 ]);

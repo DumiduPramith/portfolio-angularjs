@@ -32,17 +32,17 @@
           <li
             ng-repeat="link in links"
             ng-click="goToUrl(link.url)"
-            ng-class="{'link-active' : isActive(link.url)}"
-            class=""
+            ng-class="{'link-active' : isActive(link.url),'text-white' : isActive(link.url)}"
+            class="text-grey-700 text-grey-500"
           >
             {{link.title}}
           </li>
         </ul>
       </div>
       <div class="right">
-        <a href="https://github.com/DumiduPramith"
+        <a href="https://github.com/DumiduPramith" target="_blank"
           ><img
-            src="images/github.png"
+            src="images/icons/github_1.png"
             alt="github"
             width="36px"
             height="36px"

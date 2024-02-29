@@ -21,17 +21,39 @@
     <p class="text-lg-p2 f-500 fadein-left">
       Welcome to My personal website <span class="wave">👋🏼</span>
     </p>
-    <button
-      class="d-flex justify-content-center align-items-center py-3 px-4 mt-4 text-amber-200 bg-amber-200 bg-opacity-10 rounded-lg cursor-pointer fw-500 border-0 fadein-up"
+
+    <div class="d-flex gap-1 gap-md-2 mt-4">
+      <div
+        ng-repeat="social in socialMedias"
+        ng-click="goToUrl_new(social.url)"
+        ng-class="{'fadein-up' : !removeFadeIn}"
+        class="rounded-full border-amber-200 social-icon-tab cursor-pointer"
+      >
+        <img
+          class="social-icon"
+          ng-src="images/SVG/{{social.icon}}"
+          alt="{{social.media}}"
+        />
+      </div>
+    </div>
+
+    <a
+      class="text-decoration-none"
+      href="other_files/DumiduPramith_CV.pdf"
+      download="GFG"
     >
-      <img
-        src="images/icons/download.png"
-        alt="download"
-        height="22"
-        width="22"
-        class="mr-2"
-      />Download Resume
-    </button>
+      <button
+        class="d-flex justify-content-center align-items-center py-3 px-4 mt-4 text-amber-200 bg-amber-200 bg-opacity-10 rounded-lg cursor-pointer fw-500 border-0 fadein-left button-hover hover:button button"
+      >
+        <img
+          src="images/icons/download.png"
+          alt="download"
+          height="22"
+          width="22"
+          class="mr-2"
+        />Download Resume
+      </button>
+    </a>
   </div>
   <div id="profile-img" class="fadein-right mx-5 fadein-right">
     <img
