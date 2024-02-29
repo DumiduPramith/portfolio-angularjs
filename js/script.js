@@ -232,7 +232,7 @@ portfolioApp.controller("portfolioController", [
         technology: "Angularjs",
         image: "portfolio.png",
         github_link: "https://github.com/DumiduPramith/portfolio",
-        live_link: "",
+        live_link: "https://dumidupramith.netlify.app/",
       },
       {
         title: "Car Renting System",
