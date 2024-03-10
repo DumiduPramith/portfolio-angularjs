@@ -281,12 +281,34 @@ portfolioApp.controller("portfolioController", [
     $scope.imageLoadedMap = {};
 
     $scope.isImageLoaded = function (project) {
-      return $scope.imageLoadedMap[project.image.url];
+      // console.log("checking", project.image.name);
+      return $scope.imageLoadedMap[project.image.name];
     };
 
     $scope.setImageLoaded = function (project) {
-      $scope.imageLoadedMap[project.image.url] = true;
+      // console.log("loaded", project.image.name);
+      $scope.imageLoadedMap[project.image.name] = true;
     };
+
+    function fileRenamer(file) {
+      const parts = file.split(".");
+      if (parts.length > 1) {
+        parts[parts.length - 2] += "-small";
+        return parts.join(".");
+      } else {
+        return file;
+      }
+    }
+
+    $scope.projects.forEach(function (data) {
+      var link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      file_name = fileRenamer(data.image.name);
+
+      link.href = "/images/portfolio_small/" + file_name;
+      document.head.appendChild(link);
+    });
   },
 ]);
 
