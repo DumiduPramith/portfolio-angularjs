@@ -1,7 +1,10 @@
 var portfolioApp = angular.module("portfolioApp", ["ngRoute", "ngAnimate"]);
 
-portfolioApp.run(function ($animate) {
+portfolioApp.run(function ($animate, $rootScope, $location, $route) {
   $animate.enabled(true);
+  $rootScope.$on("$routeChangeSuccess", function (event, current, previous) {
+    $rootScope.title = $route.current.title;
+  });
 });
 
 portfolioApp.config([
@@ -12,18 +15,22 @@ portfolioApp.config([
       .when("/", {
         templateUrl: "pages/home.html",
         controller: "homeController",
+        title: "Home",
       })
       .when("/about", {
         templateUrl: "pages/about.html",
         controller: "aboutController",
+        title: "About",
       })
       .when("/portfolio", {
         templateUrl: "pages/portfolio.html",
         controller: "portfolioController",
+        title: "Portfolio",
       })
       .when("/contact", {
         templateUrl: "pages/contact.html",
         controller: "contactController",
+        title: "Contact",
       })
       .otherwise({ redirectTo: "/" });
 
